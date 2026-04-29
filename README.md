@@ -204,4 +204,4 @@ pip install -r requirements.txt
 ## Authors
 
 Lauren Montigue
-Sabrina Queipo (if applicable)
+Sabrina Queipo 

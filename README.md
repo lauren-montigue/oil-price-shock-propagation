@@ -138,25 +138,27 @@ The project focuses on **returns**, not raw prices.
 
 ## Stationarity
 
-We use log returns for modeling, which are expected to be stationary. This assumption is validated using statistical unit root and stationarity tests, specifically the Augmented Dickey-Fuller (ADF) test and the KPSS test (see stationarity_tests.py). These tests assess whether the series exhibit non-stationary behavior in mean or contain a unit root.
+We use log returns for modeling, which are expected to be stationary. This assumption is validated using stationarity tests, specifically the Augmented Dickey-Fuller (ADF) test and the KPSS test (see stationarity_tests.py). If this assumption were violated, transformations such as differencing would be required to induce stationarity.
 
 ### Augmented Dickey-Fuller (ADF) Test
 
 The ADF test is used to detect the presence of a unit root in a time series.
 
-Null hypothesis (H₀): the series has a unit root (non-stationary)
-Alternative hypothesis (H₁): the series is stationary
+* **Null hypothesis (H₀)**: the series has a unit root (non-stationary) \
+* **Alternative hypothesis (H₁)**: the series is stationary
 
-Decision rule (α = 0.05):
+**Decision rule (α = 0.05):**
 
-p < 0.05 → reject H₀ → evidence of stationarity
-p ≥ 0.05 → fail to reject H₀ → non-stationarity cannot be ruled out
+* p < 0.05 → reject H₀ → evidence of stationarity \
+* p ≥ 0.05 → fail to reject H₀ → non-stationarity cannot be ruled out
 
 For robustness, we also apply the KPSS test, which reverses the hypotheses (null: the series is stationary).
 
 ### Empirical Results
 
 All commodity return series satisfy both tests (ADF: p < 0.05, KPSS: p > 0.05). These results are consistent with the assumption that log returns are stationary in mean and justify the use of stationary time series models such as ARMA, mSSA, and related approaches.
+
+---
 
 ## Oil Price Selection
 

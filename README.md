@@ -144,12 +144,12 @@ We use log returns for modeling, which are expected to be stationary. This assum
 
 The ADF test is used to detect the presence of a unit root in a time series.
 
-* **Null hypothesis (H₀)**: the series has a unit root (non-stationary) \
+* **Null hypothesis (H₀)**: the series has a unit root (non-stationary) 
 * **Alternative hypothesis (H₁)**: the series is stationary
 
 **Decision rule (α = 0.05):**
 
-* p < 0.05 → reject H₀ → evidence of stationarity \
+* p < 0.05 → reject H₀ → evidence of stationarity 
 * p ≥ 0.05 → fail to reject H₀ → non-stationarity cannot be ruled out
 
 For robustness, we also apply the KPSS test, which reverses the hypotheses (null: the series is stationary).

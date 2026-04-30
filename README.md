@@ -13,6 +13,10 @@ The goal is to understand whether and how movements in oil prices influence othe
 ```
 oil-price-shock-propagation/
 ├── data/
+│   ├── splits                              # Train/val/test split of commodity_returns_cleaned.csv
+│      ├── train.csv                       
+│      ├── test.csv
+│      ├── val.csv
 │   ├── commodity_futures.csv               # Raw dataset (Kaggle)
 │   ├── commodity_prices_cleaned.csv        # Cleaned price levels
 │   └── commodity_returns_cleaned.csv       # Cleaned log returns (model-ready)
@@ -21,7 +25,8 @@ oil-price-shock-propagation/
 │   ├── download_data.py        # Download dataset from Kaggle (optional)
 │   ├── data_audit.py           # Data quality checks / exploratory audit
 │   └── clean_data.py           # Cleaning + preprocessing pipeline
-|   └── stationarity_tests.py   # Checks stationarity (e.g., ADF and KPSS)
+|   └── make_splits.py          # Data Splitting (70 / 15 / 15)
+|   └── stationarity_tests.py   # Stationarity Checks (ADF and KPSS tests)
 │
 ├── notebooks/
 │   └── oil-price-shock-propagation.ipynb   # Analysis notebook
@@ -157,6 +162,16 @@ For robustness, we also apply the KPSS test, which reverses the hypotheses (null
 ### Empirical Results
 
 All commodity return series satisfy both tests (ADF: p < 0.05, KPSS: p > 0.05). These results are consistent with the assumption that log returns are stationary in mean and justify the use of stationary time series models such as ARMA, mSSA, and related approaches.
+
+---
+
+## Data Splitting
+
+We use a chronological split of 70/15/15:
+
+- Train size: 4263  
+- Validation size: 914  
+- Test size: 914  
 
 ---
 

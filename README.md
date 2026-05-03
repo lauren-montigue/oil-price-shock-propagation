@@ -13,7 +13,7 @@ The goal is to understand whether and how movements in oil prices influence othe
 ```
 oil-price-shock-propagation/
 ├── data/
-│   ├── splits                              # Train/val/test split of commodity_returns_cleaned.csv
+│   ├── splits/                             # Train/val/test split of commodity_returns_cleaned.csv
 │      ├── train.csv                       
 │      ├── test.csv
 │      ├── val.csv
@@ -22,17 +22,19 @@ oil-price-shock-propagation/
 │   └── commodity_returns_cleaned.csv       # Cleaned log returns (model-ready)
 │
 ├── src/
-│   ├── download_data.py        # Download dataset from Kaggle (optional)
-│   ├── data_audit.py           # Data quality checks / exploratory audit
-│   └── clean_data.py           # Cleaning + preprocessing pipeline
-|   └── make_splits.py          # Data Splitting (70 / 15 / 15)
-|   └── stationarity_tests.py   # Stationarity Checks (ADF and KPSS tests)
+│   ├── 01_arma_order_selection.py        # Select optimal ARMA(p,q) for oil returns
+│   ├── download_data.py                  # Download dataset from Kaggle (optional)
+│   ├── data_audit.py                     # Data quality checks / exploratory audit
+│   └── clean_data.py                     # Cleaning + preprocessing pipeline
+|   └── make_splits.py                    # Data Splitting (70 / 15 / 15)
+|   └── stationarity_tests.py             # Stationarity Checks (ADF and KPSS tests)
 │
 ├── notebooks/
 │   └── oil-price-shock-propagation.ipynb   # Analysis notebook
 │
 ├── outputs/
 │   └── audit/               # Saved audit summaries (missingness, stats)
+│   └── stationarity/        # Saved stationarity test results
 │
 ├── requirements.txt
 └── README.md

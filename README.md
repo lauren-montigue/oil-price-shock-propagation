@@ -23,6 +23,7 @@ oil-price-shock-propagation/
 │
 ├── src/
 │   ├── 01_arma_order_selection.py        # Select optimal ARMA(p,q) for oil returns
+│   ├── 02_oil_shock_extraction.py        # Generate oil shock residuals from ARMA model
 │   ├── download_data.py                  # Download dataset from Kaggle (optional)
 │   ├── data_audit.py                     # Data quality checks / exploratory audit
 │   └── clean_data.py                     # Cleaning + preprocessing pipeline
@@ -247,3 +248,4 @@ pip install -r requirements.txt
 
 Lauren Montigue 
 Sabrina Queipo 
+
